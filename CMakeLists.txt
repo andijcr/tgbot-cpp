@@ -31,10 +31,15 @@ set(Boost_USE_MULTITHREADED ON)
 find_package(Boost COMPONENTS system iostreams unit_test_framework REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
+# rapid-json
+add_subdirectory(dep/rapidjson)
+include_directories(${RapidJSON_INCLUDE_DIR})
+
 set(LIB_LIST
     ${CMAKE_THREAD_LIBS_INIT}
     ${OPENSSL_LIBRARIES}
     ${Boost_LIBRARIES}
+    ${RapidJSON_LIBRARIES}
 )
 
 ### building project
